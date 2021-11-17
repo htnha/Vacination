@@ -8,6 +8,8 @@ public class Program {
         while(true){
             System.out.println("1. Đăng ký tiêm vacine");
             System.out.println("2. Tìm kiếm");
+            System.out.println("3. Cập nhật mũi tiêm");
+            System.out.println("4. Xoá người tiêm");
             System.out.println("0. Thoát");
             int option;
             BufferedReader reader = new BufferedReader(
@@ -24,11 +26,35 @@ public class Program {
                 case 2:
                     search();
                     break;
+                case 3:
+                    try {
+                        updateVaccine();
+                    } catch (PersonNotFoundException e) {
+                        System.out.println("Khong tim thay id");
+                    }
+                    break;
+                case 4:
+                    deletePerson();
+                    break;
                 case 0:
                     return;
             }
         }
     }
+
+    private static void deletePerson() {
+
+    }
+
+    private static void updateVaccine() throws PersonNotFoundException{
+        ///Search person
+        //not found person id
+        throw new PersonNotFoundException("Khong tim thay nguoi co id nhu vay");
+
+        //Person id exists
+
+    }
+
     public static void vaccineRegister() throws IOException {
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(System.in));
